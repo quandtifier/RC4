@@ -53,21 +53,21 @@ char* pgra(char k[], unsigned char s[], unsigned char out[])
 }
 
 
-int main()
+int main(int argc, char *argv[])
 {
-  char *key = "HelloRC4c";
-  printf(key);
-  printf("\n");
+  if (argc < 3) {
+    return -1;
+  }
   // the bytes that start out as 0x00 and go through 0xFF
   unsigned char bytes[BYTE_CONSTRAINT];
-
-  ksa(key, bytes);
+  // key scheduling algorithm
+  ksa(arg[1], bytes);
 
   printbits(bytes);
 
-  unsigned char result[BYTE_CONSTRAINT];
-  pgra(key, bytes, result);
-
+  unsigned char result = malloc(sizeof(char, * argv[2]));
+  // psuedo-random generation algorithm
+  pgra(key, argv[2], result);
 
   printbits(result);
 }
