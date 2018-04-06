@@ -34,6 +34,15 @@ int main()
      bytes[i] = i;
    }
 
+   for (i = 0; i < BYTE_CONSTRAINT; i++) {
+     int j;
+     for (j = 0; j < 8; j++) {
+      printf("%d", !!((bytes[i] << j) & 0x80));
+     }
+   }
+   // for debugging
+   printf("Line break\n");
+   printf("Line break\n");
    // RC4 KSA (key scheduling algorithm)
    int j = 0;
    for (i = 0; i < BYTE_CONSTRAINT; i++) {
